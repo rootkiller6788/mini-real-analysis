@@ -38,3 +38,6 @@ import MiniDifferentiation.Bridges.ToAlgebra
 import MiniDifferentiation.Bridges.ToTopology
 import MiniDifferentiation.Bridges.ToGeometry
 import MiniDifferentiation.Bridges.ToComputation
+import MiniDifferentiation.PolynomialDeriv
+import MiniDifferentiation.DiscreteDeriv
+import MiniDifferentiation.TaylorPoly

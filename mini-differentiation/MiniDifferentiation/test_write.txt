@@ -1,0 +1,27 @@
+/-
+# MiniDifferentiation.PolynomialDeriv
+
+Polynomial calculus over Q (Rat) with complete Lean 4 proofs.
+Covers all differentiation rules for polynomials as formal algebraic
+derivations -- no limits required.
+
+Knowledge coverage:
+- L1: Polynomial as List Rat, degree, eval, formal derivative operator
+- L2: Linearity of derivative, degree reduction, derivative uniqueness
+- L3: Rat[X] as differential ring, derivation structure
+- L4: Power rule, sum rule, product rule (proved)
+- L5: Induction on degree, list recursion, proof decomposition
+- L6: #eval examples for x^5, (x+1)^3, triple product
+- L7: Applications: Newton method, critical point finder, Taylor expansion
+- L8: Taylor shift, Wronskian, formal power series derivatives
+-/
+
+import MiniMathKernel
+
+open MiniMathKernel
+
+/-! ## L1: Core Definitions -- Polynomials over Q
+
+A polynomial a0 + a1*x + a2*x^2 + ... + an*x^n is represented as
+the coefficient list [a0, a1, a2, ..., an]. The 0 polynomial
+is the empty list. -/

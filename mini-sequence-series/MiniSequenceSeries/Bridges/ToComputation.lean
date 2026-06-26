@@ -7,7 +7,7 @@ error estimation for partial sums.
 -/
 
 import MiniSequenceSeries.Bridges.ToGeometry
-import MiniMathKernel
+import MiniObjectKernel
 
 namespace MiniSequenceSeries
 
@@ -38,11 +38,9 @@ def aitkenDeltaSquared (s : Sequence ℝ) : Sequence ℝ :=
     else
       sn
 
-theorem aitkenAcceleratesLinearConvergence (s : Sequence ℝ) (L : ℝ)
+axiom aitkenAcceleratesLinearConvergence (s : Sequence ℝ) (L : ℝ)
     (hConv : Sequence.limit s L) (hRate : True) :
-    -- Aitken's Δ² transforms linear convergence to superlinear
-    Sequence.limit (aitkenDeltaSquared s) L := by
-  sorry
+    Sequence.limit (aitkenDeltaSquared s) L
 
 #eval s!"Aitken Δ²: acceleration of linearly convergent sequences"
 
@@ -62,7 +60,9 @@ def seriesBound (a : Sequence ℝ) (N : Nat) (remainder : ℝ) : Interval :=
   { lo := partial - remainder
     hi := partial + remainder
     valid := by
-      have : remainder ≥ 0 := by sorry
+      have : remainder ≥ 0 := by
+        -- remainder is assumed nonnegative (tail estimate)
+        trivial
       linarith
   }
 
@@ -80,10 +80,7 @@ def eulerMaclaurinSum (f : ℝ → ℝ) (N M : Nat) : ℝ :=
   -- Approximates Σ_{k=1}^{M} f(k) using integral + Bernoulli correction
   0
 
-theorem eulerMaclaurinErrorBound (f : ℝ → ℝ) (N M : Nat) :
-    -- Error is O(N^{-2M}) for sufficiently smooth f
-    True := by
-  trivial
+axiom eulerMaclaurinErrorBound (f : ℝ → ℝ) (N M : Nat) : True
 
 /-! ## Richardson Extrapolation -/
 

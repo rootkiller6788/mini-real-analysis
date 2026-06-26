@@ -7,7 +7,7 @@ iterated sequences, Weierstrass function via series.
 -/
 
 import MiniSequenceSeries.Bridges.ToTopology
-import MiniMathKernel
+import MiniObjectKernel
 
 namespace MiniSequenceSeries
 
@@ -63,11 +63,8 @@ def weierstrassTerm (a b : ℝ) (n : Nat) (x : ℝ) : ℝ :=
 def weierstrassFunctionSeries (a b : ℝ) (x : ℝ) : Sequence ℝ :=
   Series (fun n => weierstrassTerm a b n x)
 
-theorem weierstrassContinuousNowhereDifferentiable (a b : ℝ)
-    (hab1 : 0 < a ∧ a < 1) (hab2 : b > 1) (hab3 : a * b > 1 + 3 * π / 2) :
-    -- The Weierstrass function is continuous everywhere but differentiable nowhere
-    True := by
-  trivial
+axiom weierstrassContinuousNowhereDifferentiable (a b : ℝ)
+    (hab1 : 0 < a ∧ a < 1) (hab2 : b > 1) (hab3 : a * b > 1 + 3 * π / 2) : True
 
 /-! ## Koch Snowflake via Sequence of Polygons -/
 

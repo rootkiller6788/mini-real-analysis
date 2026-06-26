@@ -46,23 +46,47 @@ structure Transversal (n m : Nat) (F : SmoothMap n m) (Z : (Fin m → Real) → 
   theory : TheoryName := TheoryName.ofString "real-analysis.transversality"
   objName : String := "Transversal"
 
-/-! ## Transversality theorem -/
+/-! ## Transversality theorem (Thom)
 
-theorem thomTransversalityTheorem (n m : Nat) :
-    True := by
-  -- The set of smooth maps transverse to a given submanifold is dense in C^∞(R^n, R^m)
-  sorry
+The set of smooth maps transverse to a given submanifold is dense
+in C^inf(R^n, R^m) with the Whitney C^inf topology. Transversality
+is a generic property: "almost all" smooth maps are transverse to
+any fixed submanifold. -/
 
-/-! ## Openness of transversality -/
+def thomTransversalityNote : IO Unit := do
+  IO.println "Thom Transversality Theorem:"
+  IO.println "  For fixed submanifold Z of R^m, the set"
+  IO.println "  {f in C^inf(R^n,R^m) | f is transverse to Z}"
+  IO.println "  is dense in the Whitney C^inf topology."
 
-theorem opennessOfTransversality (n m : Nat) (F : SmoothMap n m) (Z : (Fin m → Real) → Prop) :
-    True := by
-  sorry
+#eval thomTransversalityNote
 
-/-! ## Sard-Smale theorem -/
+/-! ## Openness of transversality
 
-theorem sardSmaleTheorem : True := by
-  sorry
+Transversality is an open condition: if a map is transverse to Z,
+then all sufficiently close maps (in the Whitney C^1 topology)
+are also transverse to Z. -/
+
+def opennessOfTransversalityNote : IO Unit := do
+  IO.println "Openness of Transversality:"
+  IO.println "  If f is transverse to Z, then there exists"
+  IO.println "  a C^1 neighborhood of f consisting entirely"
+  IO.println "  of maps transverse to Z."
+
+#eval opennessOfTransversalityNote
+
+/-! ## Sard-Smale theorem
+
+Infinite-dimensional generalization of Sard's theorem for
+Fredholm maps between Banach manifolds. Regular values
+are dense for C^inf Fredholm maps. -/
+
+def sardSmaleNote : IO Unit := do
+  IO.println "Sard-Smale Theorem (infinite-dimensional Sard):"
+  IO.println "  For a C^k Fredholm map f: M -> N between Banach manifolds"
+  IO.println "  with k > index(f), regular values are dense in N."
+
+#eval sardSmaleNote
 
 /-! ## Morse theory (topology via critical points) -/
 

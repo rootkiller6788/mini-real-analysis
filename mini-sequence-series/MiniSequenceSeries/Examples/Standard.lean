@@ -6,7 +6,7 @@ alternating harmonic, seequence types, convergence behaviors.
 -/
 
 import MiniSequenceSeries.Theorems.UniversalProperties
-import MiniMathKernel
+import MiniObjectKernel
 
 namespace MiniSequenceSeries
 

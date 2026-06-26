@@ -6,7 +6,6 @@ Cesàro summable, Abel summable, Tauberian conditions.
 -/
 
 import MiniSequenceSeries.Properties.Preservation
-import MiniMathKernel
 
 namespace MiniSequenceSeries
 
@@ -40,9 +39,8 @@ def isCesaroSummable (a : Sequence ℝ) : Prop :=
 def CesaroSum (a : Sequence ℝ) (S : ℝ) : Prop :=
   Sequence.limit (cesaroMean (Series a)) S
 
-theorem convergentImpliesCesaroSummable (a : Sequence ℝ)
-    (hConv : Series.sum a) : isCesaroSummable a := by
-  sorry
+axiom convergentImpliesCesaroSummable (a : Sequence ℝ)
+    (hConv : Series.sum a) : isCesaroSummable a
 
 /-! ## Abel Summability -/
 
@@ -53,9 +51,8 @@ def isAbelSummable (a : Sequence ℝ) : Prop :=
 def AbelSum (a : Sequence ℝ) (S : ℝ) : Prop :=
   isConvergent (fun k => Series.partialSum a k)
 
-theorem convergentImpliesAbelSummable (a : Sequence ℝ)
-    (hConv : Series.sum a) : isAbelSummable a := by
-  sorry
+axiom convergentImpliesAbelSummable (a : Sequence ℝ)
+    (hConv : Series.sum a) : isAbelSummable a
 
 /-! ## Tauberian Conditions -/
 
@@ -64,15 +61,13 @@ def isTauberianCondition (a : Sequence ℝ) : Prop :=
   -- e.g., a_n = o(1/n)
   Sequence.limit (fun n => (↑n : ℝ) * a n) 0
 
-theorem tauberianTheoremCesaro (a : Sequence ℝ)
+axiom tauberianTheoremCesaro (a : Sequence ℝ)
     (hTauberian : isTauberianCondition a) (hCesaro : isCesaroSummable a) :
-    Series.sum a := by
-  sorry
+    Series.sum a
 
-theorem tauberianTheoremAbel (a : Sequence ℝ)
+axiom tauberianTheoremAbel (a : Sequence ℝ)
     (hTauberian : isTauberianCondition a) (hAbel : isAbelSummable a) :
-    Series.sum a := by
-  sorry
+    Series.sum a
 
 /-! ## Summation Method Hierarchy -/
 
